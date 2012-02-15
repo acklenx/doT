@@ -12,7 +12,7 @@
 // Licensed under the MIT license.
 //
 (function() {
-	var doT = { version : '0.1.7' };
+	var doT = { version : '0.2.0' };
 
 	if (typeof module !== 'undefined' && module.exports) {
 		module.exports = doT;
@@ -21,13 +21,13 @@
 	}
 
 	doT.templateSettings = {
-		evaluate:    /\{\{([\s\S]+?)\}\}/g,
-		interpolate: /\{\{=([\s\S]+?)\}\}/g,
-		encode:      /\{\{!([\s\S]+?)\}\}/g,
-		use:         /\{\{#([\s\S]+?)\}\}/g, //compile time evaluation
-		define:      /\{\{##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\}\}/g, //compile time defs
-		conditionalStart: /\{\{\?([\s\S]+?)\}\}/g,
-		conditionalEnd: /\{\{\?\}\}/g,
+		evaluate:	/<!--%([\s\S]+?)%-->/g,
+		interpolate:	/{%=([\s\S]+?)%}/g,
+		encode:		/{%!([\s\S]+?)%}/g,
+		use:         	/\{%#([\s\S]+?)%\}/g, //compile time evaluation
+		define:      	/\{%##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#%\}/g, //compile time defs
+		conditionalStart: /\{%\?([\s\S]+?)%\}/g,
+		conditionalEnd: 	/\{%\?%\}/g,
 		varname: 'it',
 		strip : true,
 		append: true
